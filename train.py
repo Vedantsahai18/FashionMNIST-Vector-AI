@@ -38,7 +38,7 @@ Path(IMAGE_DIR).mkdir(parents=True, exist_ok=True)
 NO_EPOCHS = 50
 BATCH_SIZE = 128
 
-"""## <a id="51">Prepare the model</a>
+"""## Prepare the model</a>
 
 ## Data preprocessing
 
@@ -117,7 +117,7 @@ def plot_training_history(history):
     plt.show()
 
 
-"""## <a id="57">Prediction accuracy with the new model</a>
+"""## Prediction accuracy with the new model</a>
 
 Let's evaluate the prediction accuracy with the new model.
 """

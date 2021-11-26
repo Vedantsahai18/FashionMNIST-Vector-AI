@@ -97,9 +97,20 @@ Then we compile the model, specifying as well the following parameters:
 
 First unzip the mnist datset folder inside the input directory then 
 
-To run the prediction code type,
+To run the train code type,
 
 `python train.py  --train <TRAIN DATA PATH> --test <TEST DATA PATH>`
+
+example 
+`python train.py  --train /input/fashion_mnist_train.csv --test /input/fashion_mnist_test.csv`
+
+To run the prediction code on an custom image type,
+
+`python predict.py  --image <PREDICT IMAGE DATA PATH>`
+
+example
+
+`python predict.py  --image /images/predict.png`
 
 ## Metrics
 
