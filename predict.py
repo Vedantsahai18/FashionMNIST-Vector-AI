@@ -24,7 +24,7 @@ labels = {0 : "T-shirt/top", 1: "Trouser", 2: "Pullover", 3: "Dress", 4: "Coat",
 # data preprocessing
 def data_preprocessing(filename):
 	# load the image
-	img = load_img(filename, grayscale=True, target_size=(28, 28))
+	img = load_img(filename, color_mode = "grayscale", target_size=(28, 28))
 	# convert to array
 	img = img_to_array(img)
 	# reshape into a single sample with 1 channel
@@ -38,15 +38,15 @@ def main():
     parser = argparse.ArgumentParser(description='Predict the image')
     parser.add_argument('--image', type=str, help='Image to predict')
     args = parser.parse_args()
+    # image_path = os.path.join(os.getcwd(),args.image)
     image_path = args.image
     try:
-        x = preprocess_img(image_path)
+        x = data_preprocessing(image_path)
         try:
             model = tf.keras.models.load_model(os.path.join(MODEL_DIR, 'model_fashion.h5'))
             prediction = np.array_str(np.argmax(model.predict(x), axis=-1))
             prediction = str(prediction)[1:-1]
-            print(prediction)
-            print(labels[int(prediction)])
+            print("Model Prediction : ", labels[int(prediction)])
         except:
             print('Model not found')
     except:
